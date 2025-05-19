@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="text-center">
-        <h2>Booking Confirmed!</h2>
-        <p>Your feast has been reserved. We'll have the mead ready.</p>
-        <a href="/" class="btn btn-secondary mt-4">Back to Home</a>
-    </div>
+    <div class="booking-form">
+    <h2>Thank You, {{ name }}!</h2>
+    <p>Your table for {{ guests }} has been successfully booked for <strong>{{ date }}</strong>.</p>
+    <p>A confirmation email will be sent to: <strong>{{ email }}</strong></p>
+
+    <a href="/" class="submit-button" style="margin-top: 20px;">Return to Home</a>
+</div>
 {% endblock %}

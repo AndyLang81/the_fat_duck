@@ -31,4 +31,9 @@ def book_table(request):
     else:
         form = BookingForm()
 
-    return render(request, 'book_table.html', {'form': form, 'message': message})
+    return render(request, "booking/booking_success.html", {
+    "name": name,
+    "email": email,
+    "date": date,
+    "guests": guests
+})
