@@ -1,0 +1,505 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: 'Platypi', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow */
+}
+
+/* Logo Styling */
+header .logo h1 {
+    margin-left: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Vertically align the text and image */
+}
+
+.logo-image {
+    margin-left: 5px; /* Space between "Duck" and the image */
+    height: 1em; /* Make the image slightly larger than the text */
+    width: auto; /* Maintain the aspect ratio */
+}
+
+/* Navigation Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* Center nav items on larger screens */
+    flex-grow: 1;
+    /* Ensures the nav items take up the remaining space */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+nav ul li a:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+/* Burger Icon */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Individual burger lines */
+.burger-line {
+    height: 4px;
+    background-color: white;
+    width: 100%;
+}
+
+/* Main Content Styling */
+main {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Content Sections (Top and Bottom) */
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    /* Space between sections */
+    padding: 40px 0;
+}
+
+.content-section .image-container {
+    width: 50%;
+    /* Image takes up 50% of the section */
+}
+
+.content-section img {
+    width: 40%;
+    /* Ensure the image takes full width of the container */
+    height: auto;
+}
+
+.content-section .text-container {
+    width: 50%;
+    /* Text takes up the other 50% of the section */
+    padding: 0 20px;
+}
+
+/* General Styling for the Menu Section */
+.menu {
+    padding: 40px 20px;
+    text-align: center;  /* Center the title and headings */
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Flexbox container to divide menu into two columns */
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Space between the two columns */
+    flex-wrap: wrap;
+    align-items: flex-start; /* Align items to the top of the column */
+    text-align: center;
+}
+
+/* Styling for Food and Drinks Section */
+.food, .drinks {
+    flex: 1;
+    min-width: 300px; /* Ensure each section has a minimum width */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    text-align: center;  /* Center-align the text in each column */
+}
+
+/* Menu Item Styling */
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center the menu items horizontally */
+    text-align: center; /* Center text inside each menu item */
+}
+
+.menu-item {
+    font-size: 1.2em;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;  /* Stack name and price vertically */
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 0;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    text-align: center; /* Center the text inside each menu item */
+}
+
+/* Separator Styling */
+.separator {
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+/* Hover Zoom Effect */
+.menu-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Price Styling */
+.menu-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* General Styling for the Contact Section */
+.contact {
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the section takes up full height of the viewport */
+}
+
+/* Container for the contact info and hours, vertically centered */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Space between the two columns */
+    flex-wrap: wrap;
+    margin-top: 20px;
+    flex-grow: 1; /* Allow the content to grow and push footer down */
+}
+
+/* Styling for Contact Info and Opening Hours Section */
+.contact-info, .contact-hours {
+    flex: 1;
+    min-width: 300px; /* Ensure each section has a minimum width */
+    padding: 20px;
+    text-align: left;
+}
+
+/* Headings Styling */
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Contact Text Section */
+.contact-text {
+    padding: 20px;
+    margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+    
+/* Link Styling for Email */
+.contact-info a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Basic Styling for Booking Form */
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.booking-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #444;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Positions left and right divs */
+    align-items: center; /* Centers vertically */
+    margin-top: auto; /* Ensures footer is always at the bottom of the viewport */
+    flex-wrap: wrap; /* Allows the footer to wrap on smaller screens */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow upwards */
+}
+
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.footer-left p {
+    margin: 0;
+    padding: 1px 0;
+    /* Reduce vertical padding */
+    text-align: left;
+}
+
+.separator {
+    margin: 0 8px;
+    /* Reduce space around the separator */
+    font-weight: bold;
+    font-size: 1em;
+}
+
+footer a {
+    color: white;
+    /* Style the email link */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+footer a:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+
+/* Social Media Icon Styling */
+.social-icon {
+    color: white;
+    /* Set icon color to white */
+    font-size: 24px;
+    /* Make the icon size smaller */
+    margin-left: 10px;
+    /* Space between icons */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.social-icon:hover {
+    opacity: 0.7;
+    /* Slight opacity change on hover */
+}
+
+/* Remove underline from the logo link */
+header .logo a {
+    text-decoration: none;
+    /* Remove underline from logo link */
+    color: white;
+    /* Ensure logo text is white */
+}
+
+/* Optional: Hover effect on icons */
+.social-icon i {
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover i {
+    color: #ff6347;
+    /* Change icon color on hover (optional) */
+}
+
+/* Footer Links Section */
+.footer-links {
+    text-align: center; /* Center the links */
+    width: 100%;
+    margin-top: 10px; /* Space between the footer content and the links */
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none; /* Remove underline */
+    padding: 0 10px; /* Space between links */
+    font-size: 1em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+    opacity: 0.7; /* Slight fade effect on hover */
+}
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        /* Hide navigation links on mobile */
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #000;
+        flex-direction: column;
+        /* Stack items vertically */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .burger {
+        display: flex;
+        /* Show burger icon */
+        position: absolute;
+        /* Position burger icon at top-right */
+        right: 20px;
+        /* Right-align the burger icon */
+        top: 20px;
+        /* Add some space from the top */
+    }
+
+    nav.active ul {
+        display: block;
+        /* Show menu when active class is added */
+    }
+
+    /* Mobile-specific styling for content sections */
+    .content-section {
+        flex-direction: column;
+        /* Stack image and text vertically on mobile */
+        align-items: center;
+    }
+
+    .content-section .image-container,
+    .content-section .text-container {
+        width: 100%;
+        /* Both take up full width on smaller screens */
+        text-align: center;
+        /* Center text */
+    }
+
+    .content-section .image-container img {
+        width: 80%;
+        /* Scale down the image slightly on small screens */
+    }
+
+    /* Media Query for Moenu */
+
+    @media (max-width: 768px) {
+        .menu-container {
+            flex-direction: column;
+            /* Stack the sections vertically on smaller screens */
+            align-items: center;
+        }
+
+        .menu-item {
+            width: 100%;
+            /* Ensure menu items take full width on smaller screens */
+        }
+
+        
+    }
+
+    /* Media Query for Contact */
+        .contact-container {
+            flex-direction: column; /* Stack the sections vertically on smaller screens */
+            align-items: center;
+        }
+    
+        .contact-info, .contact-hours {
+            width: 100%; /* Ensure sections take up full width on smaller screens */
+        }
+
+        
+    }

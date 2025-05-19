@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Booking Confirmed</title>
-</head>
-<body>
-    <h1>Success!</h1>
-    <p>Your feast has been reserved. We look forward to serving you.</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text-center">
+        <h2>Booking Confirmed!</h2>
+        <p>Your feast has been reserved. We'll have the mead ready.</p>
+        <a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+    </div>
+{% endblock %}
