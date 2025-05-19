@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .forms import BookingForm
+from .models import Booking
 
 def home(request):
     return render(request, 'home.html')
