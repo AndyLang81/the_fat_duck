@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <h2>Welcome to The Fat Duck!</h2>
+    <p>Your perfect dining experience begins here.</p>
+
+    <!-- Owner Section -->
+    <div class="content-section bottom">
+        <div class="text-container">
+            <h2>Meet the Owner...</h2>
+            <p><strong>Frederik Andersen</strong>, the visionary owner, has always had a passion for food and history. After years of traveling the world and exploring different culinary traditions, Frederik decided to open The Fat Duck to share his love for hearty, flavorful meals made from locally sourced ingredients.</p>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'booking/owner.png' %}" alt="Frederik">
+        </div>
+    </div>
+
+    <!-- Chef Section -->
+    <div class="content-section top">
+        <div class="image-container">
+            <img src="{% static 'booking/chef.png' %}" alt="Charlotte">
+        </div>
+        <div class="text-container">
+            <h2>...and the Chef</h2>
+            <p><strong>Charlotte Jensen</strong>, our head chef, brings years of experience in fine dining and rustic cooking. Charlotte uses traditional techniques to craft dishes rich in flavor and satisfaction.</p>
+        </div>
+    </div>
+
+    <!-- Building Section -->
+    <div class="content-section bottom">
+        <div class="text-container">
+            <h2>Our Historical Building</h2>
+            <p>The Fat Duck is housed in a beautifully restored 18th-century building in the heart of Copenhagen. We've preserved its charm while offering a modern dining experience — wooden beams, stone walls, and echoes of centuries past.</p>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'booking/restaurant.png' %}" alt="Historic Building">
+        </div>
+    </div>
+</main>
+{% endblock %}
