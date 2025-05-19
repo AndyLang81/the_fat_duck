@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <h2>Welcome to The Fat Duck!</h2>
+    <p>Do you need to reach us?</p>
+
+    <!-- Top Section -->
+    <div class="content-section top">
+        <div class="image-container">
+            <img src="{% static 'booking/poppy.png' %}" alt="Poppy">
+        </div>
+        <div class="text-container">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> Kultorvet 45, 1175 Copenhagen K, Denmark</p>
+            <p><strong>Phone:</strong> +45 12345678</p>
+            <p><strong>Email:</strong> <a href="mailto:TheFatDuck@duck.dk">TheFatDuck@duck.dk</a></p>
+        </div>
+    </div>
+
+    <!-- Center Section -->
+    <div class="content-section bottom">
+        <div class="text-container">
+            <h2>Opening Hours</h2>
+            <p><strong>Monday - Thursday:</strong> 12:00 PM - 10:00 PM</p>
+            <p><strong>Friday - Saturday:</strong> 12:00 PM - 11:00 PM</p>
+            <p><strong>Sunday:</strong> Closed</p>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'booking/swine.png' %}" alt="Swine">
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="content-section top">
+        <div class="image-container">
+            <img src="{% static 'booking/bull.png' %}" alt="Bull">
+        </div>
+        <div class="text-container">
+            <h2>Get in Touch</h2>
+            <p>At The Fat Duck, we would love to hear from you! Whether you want to make a reservation,
+                inquire about our menu, or learn more about our unique location in the heart of Copenhagen,
+                don’t hesitate to reach out. We pride ourselves on offering a welcoming and unforgettable
+                dining experience.
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}
