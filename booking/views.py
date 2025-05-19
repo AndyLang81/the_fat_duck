@@ -18,11 +18,11 @@ def book_table(request):
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
 
-            # Checks if date/time is already booked
-            exists = Booking.objects.filter(date=date, time=time).exists()
+            # Block if this EMAIL already booked this slot
+            exists = Booking.objects.filter(date=date, time=time, email=email).exists()
 
             if exists:
-                message = "Sorry, that time slot is already booked. Please choose another."
+                message = "You already have a booking at that time."
             else:
                 form.save()
                 return render(request, 'booking_success.html')
