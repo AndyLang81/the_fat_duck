@@ -1,12 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .forms import BookingForm
 from .models import Booking
 
 def home(request):
     return render(request, 'home.html')
-
-from .forms import BookingForm
-from django.http import HttpResponseRedirect
 
 def book_table(request):
     message = None
@@ -20,20 +18,24 @@ def book_table(request):
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
 
-            # Block if this EMAIL already booked this slot
+            # Check if the same email already booked this time slot
             exists = Booking.objects.filter(date=date, time=time, email=email).exists()
 
             if exists:
                 message = "You already have a booking at that time."
             else:
                 form.save()
-                return render(request, 'booking_success.html')
+                return render(request, 'booking_success.html', {
+                    "name": name,
+                    "email": email,
+                    "date": date,
+                    "guests": guests,
+                    "time": time
+                })
     else:
         form = BookingForm()
 
-    return render(request, "booking/booking_success.html", {
-    "name": name,
-    "email": email,
-    "date": date,
-    "guests": guests
-})
+    return render(request, "book_table.html", {
+        "form": form,
+        "message": message
+    })
