@@ -24,7 +24,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Slight shadow */
 }
 
 /* Logo Styling */
@@ -33,13 +34,17 @@ header .logo h1 {
     font-size: 2em;
     font-weight: bold;
     display: flex;
-    align-items: center; /* Vertically align the text and image */
+    align-items: center;
+    /* Vertically align the text and image */
 }
 
 .logo-image {
-    margin-left: 5px; /* Space between "Duck" and the image */
-    height: 1em; /* Make the image slightly larger than the text */
-    width: auto; /* Maintain the aspect ratio */
+    margin-left: 5px;
+    /* Space between "Duck" and the image */
+    height: 1em;
+    /* Make the image slightly larger than the text */
+    width: auto;
+    /* Maintain the aspect ratio */
 }
 
 /* Navigation Styling */
@@ -124,7 +129,8 @@ main {
 /* General Styling for the Menu Section */
 .menu {
     padding: 40px 20px;
-    text-align: center;  /* Center the title and headings */
+    text-align: center;
+    /* Center the title and headings */
 }
 
 h2 {
@@ -137,22 +143,29 @@ h2 {
 .menu-container {
     display: flex;
     justify-content: space-between;
-    gap: 40px; /* Space between the two columns */
+    gap: 40px;
+    /* Space between the two columns */
     flex-wrap: wrap;
-    align-items: flex-start; /* Align items to the top of the column */
+    align-items: flex-start;
+    /* Align items to the top of the column */
     text-align: center;
 }
 
 /* Styling for Food and Drinks Section */
-.food, .drinks {
+.food,
+.drinks {
     flex: 1;
-    min-width: 300px; /* Ensure each section has a minimum width */
+    min-width: 300px;
+    /* Ensure each section has a minimum width */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-    justify-content: flex-start; /* Align items to the top */
-    text-align: center;  /* Center-align the text in each column */
+    align-items: center;
+    /* Center the content horizontally */
+    justify-content: flex-start;
+    /* Align items to the top */
+    text-align: center;
+    /* Center-align the text in each column */
 }
 
 /* Menu Item Styling */
@@ -162,23 +175,29 @@ h2 {
     margin: 0;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center the menu items horizontally */
-    text-align: center; /* Center text inside each menu item */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center the menu items horizontally */
+    text-align: center;
+    /* Center text inside each menu item */
 }
 
 .menu-item {
     font-size: 1.2em;
     margin: 10px 0;
     display: flex;
-    flex-direction: column;  /* Stack name and price vertically */
+    flex-direction: column;
+    /* Stack name and price vertically */
     width: 100%;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     padding: 5px 0;
-    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-    text-align: center; /* Center the text inside each menu item */
+    transition: transform 0.3s ease;
+    /* Smooth transition for zoom effect */
+    text-align: center;
+    /* Center the text inside each menu item */
 }
 
 /* Separator Styling */
@@ -189,7 +208,8 @@ h2 {
 
 /* Hover Zoom Effect */
 .menu-item:hover {
-    transform: scale(1.05); /* Slight zoom effect */
+    transform: scale(1.05);
+    /* Slight zoom effect */
 }
 
 /* Price Styling */
@@ -204,23 +224,28 @@ h2 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the section takes up full height of the viewport */
+    min-height: 100vh;
+    /* Ensure the section takes up full height of the viewport */
 }
 
 /* Container for the contact info and hours, vertically centered */
 .contact-container {
     display: flex;
     justify-content: space-between;
-    gap: 40px; /* Space between the two columns */
+    gap: 40px;
+    /* Space between the two columns */
     flex-wrap: wrap;
     margin-top: 20px;
-    flex-grow: 1; /* Allow the content to grow and push footer down */
+    flex-grow: 1;
+    /* Allow the content to grow and push footer down */
 }
 
 /* Styling for Contact Info and Opening Hours Section */
-.contact-info, .contact-hours {
+.contact-info,
+.contact-hours {
     flex: 1;
-    min-width: 300px; /* Ensure each section has a minimum width */
+    min-width: 300px;
+    /* Ensure each section has a minimum width */
     padding: 20px;
     text-align: left;
 }
@@ -248,7 +273,7 @@ p {
     text-align: center;
 }
 
-    
+
 /* Link Styling for Email */
 .contact-info a {
     text-decoration: none;
@@ -319,11 +344,16 @@ footer {
     padding: 20px;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Positions left and right divs */
-    align-items: center; /* Centers vertically */
-    margin-top: auto; /* Ensures footer is always at the bottom of the viewport */
-    flex-wrap: wrap; /* Allows the footer to wrap on smaller screens */
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow upwards */
+    justify-content: space-between;
+    /* Positions left and right divs */
+    align-items: center;
+    /* Centers vertically */
+    margin-top: auto;
+    /* Ensures footer is always at the bottom of the viewport */
+    flex-wrap: wrap;
+    /* Allows the footer to wrap on smaller screens */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    /* Slight shadow upwards */
 }
 
 
@@ -401,21 +431,27 @@ header .logo a {
 
 /* Footer Links Section */
 .footer-links {
-    text-align: center; /* Center the links */
+    text-align: center;
+    /* Center the links */
     width: 100%;
-    margin-top: 10px; /* Space between the footer content and the links */
+    margin-top: 10px;
+    /* Space between the footer content and the links */
 }
 
 .footer-links a {
     color: white;
-    text-decoration: none; /* Remove underline */
-    padding: 0 10px; /* Space between links */
+    text-decoration: none;
+    /* Remove underline */
+    padding: 0 10px;
+    /* Space between links */
     font-size: 1em;
 }
 
 .footer-links a:hover {
-    text-decoration: underline; /* Underline on hover */
-    opacity: 0.7; /* Slight fade effect on hover */
+    text-decoration: underline;
+    /* Underline on hover */
+    opacity: 0.7;
+    /* Slight fade effect on hover */
 }
 
 
@@ -488,18 +524,33 @@ header .logo a {
             /* Ensure menu items take full width on smaller screens */
         }
 
-        
+
     }
 
     /* Media Query for Contact */
-        .contact-container {
-            flex-direction: column; /* Stack the sections vertically on smaller screens */
-            align-items: center;
-        }
-    
-        .contact-info, .contact-hours {
-            width: 100%; /* Ensure sections take up full width on smaller screens */
-        }
-
-        
+    .contact-container {
+        flex-direction: column;
+        /* Stack the sections vertically on smaller screens */
+        align-items: center;
     }
+
+    .contact-info,
+    .contact-hours {
+        width: 100%;
+        /* Ensure sections take up full width on smaller screens */
+    }
+
+    /* Fade-in & grow effect on page load */
+    main {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    main.fade-in {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+
+}

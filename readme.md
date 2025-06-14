@@ -102,7 +102,35 @@ Automated and manual tests have been conducted to ensure:
 * Access restrictions to admin pages are enforced.
 * Static files load properly in production.
 
-Further JavaScript testing for responsiveness and UX is planned.
+### Booking Form Manual Tests
+
+1. **Successful Booking**  
+   - Go to `/book/`, fill in valid data, and submit.  
+   - **Expected:** Redirect to confirmation page showing name, date, time, and guest count.  
+   - ![Booking Success](./docs/screenshots/booking_success.png)
+
+2. **Duplicate Booking Prevention**  
+   - Revisit `/book/`, submit the same email/date/time as above.  
+   - **Expected:** The form reloads with the error message “You already have a booking at that time.”  
+   - ![Duplicate Error](./docs/screenshots/duplicate_error.png)
+
+3. **Required Fields Validation**  
+   - **Action:** Submit the booking form without filling in any fields.  
+   - **Expected:** Each required field displays the error message “This field is required.”  
+   - ![Required Field Error](./docs/screenshots/required_field_error.png)
+
+### JavaScript / UI Manual Tests
+
+1. **Mobile Navigation (Burger Menu)**  
+   - Resize browser to mobile width or open on a phone.  
+   - Click the burger icon.  
+   - **Expected:** The nav menu expands and collapses.  
+   - ![Burger Menu Open](./docs/screenshots/burger_open.png)  
+   - ![Burger Menu Closed](./docs/screenshots/burger_closed.png)
+
+---
+
+All tests were performed on Chrome Version XX.X and Django’s development server.  
 
 ---
 
