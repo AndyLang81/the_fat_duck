@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .forms import BookingForm
 from .models import Booking
 from datetime import time as dt_time
@@ -14,10 +15,10 @@ def home(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            name    = form.cleaned_data['name']
-            email   = form.cleaned_data['email']
-            guests  = form.cleaned_data['guests']
-            date    = form.cleaned_data['date']
+            name      = form.cleaned_data['name']
+            email     = form.cleaned_data['email']
+            guests    = form.cleaned_data['guests']
+            date      = form.cleaned_data['date']
             slot_time = form.cleaned_data['time']
 
             # Check opening hours
@@ -50,6 +51,7 @@ def home(request):
         "message": message
     })
 
+
 # View to handle table bookings on its own page (if still desired)
 def book_table(request):
     message = None
@@ -57,10 +59,10 @@ def book_table(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            name    = form.cleaned_data['name']
-            email   = form.cleaned_data['email']
-            guests  = form.cleaned_data['guests']
-            date    = form.cleaned_data['date']
+            name      = form.cleaned_data['name']
+            email     = form.cleaned_data['email']
+            guests    = form.cleaned_data['guests']
+            date      = form.cleaned_data['date']
             slot_time = form.cleaned_data['time']
 
             # Check opening hours
@@ -92,3 +94,33 @@ def book_table(request):
         "form": form,
         "message": message
     })
+
+
+# Availability endpoint for AJAX checks
+def availability(request):
+    """
+    Returns a JSON mapping of each time slot to the number of bookings
+    already made on the provided date (YYYY-MM-DD).
+    """
+    date = request.GET.get('date')
+    slots = {}
+
+    # Prepare the list of possible slots from the BookingForm choices
+    form = BookingForm()
+    for choice, _ in form.fields['time'].choices:
+        slots[choice] = 0
+
+    if date:
+        # Count existing bookings per slot
+        counts = (
+            Booking.objects
+            .filter(date=date)
+            .values_list('time')
+            .order_by('time')
+        )
+        for slot_time in counts:
+            time_str = slot_time[0].strftime("%H:%M")
+            if time_str in slots:
+                slots[time_str] += 1
+
+    return JsonResponse(slots)
