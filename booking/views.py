@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .forms import BookingForm
 from .models import Booking
+from datetime import time as dt_time
+
+# Define opening hours (e.g., 17:00–22:00)
+OPENING_TIME = dt_time(17, 0)
+CLOSING_TIME = dt_time(22, 0)
 
 # View to render the homepage and handle inline bookings
 def home(request):
@@ -9,27 +14,34 @@ def home(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            guests = form.cleaned_data['guests']
-            date = form.cleaned_data['date']
-            time = form.cleaned_data['time']
+            name    = form.cleaned_data['name']
+            email   = form.cleaned_data['email']
+            guests  = form.cleaned_data['guests']
+            date    = form.cleaned_data['date']
+            slot_time = form.cleaned_data['time']
 
-            exists = Booking.objects.filter(
-                date=date, time=time, email=email
-            ).exists()
-
-            if exists:
-                message = "You already have a booking at that time."
+            # Check opening hours
+            if slot_time < OPENING_TIME or slot_time > CLOSING_TIME:
+                message = (
+                    f"Our opening hours are "
+                    f"{OPENING_TIME.strftime('%H:%M')}–{CLOSING_TIME.strftime('%H:%M')}."
+                )
             else:
-                form.save()
-                return render(request, 'booking_success.html', {
-                    "name": name,
-                    "email": email,
-                    "date": date,
-                    "guests": guests,
-                    "time": time
-                })
+                # Prevent duplicate bookings
+                exists = Booking.objects.filter(
+                    date=date, time=slot_time, email=email
+                ).exists()
+                if exists:
+                    message = "You already have a booking at that time."
+                else:
+                    form.save()
+                    return render(request, 'booking_success.html', {
+                        "name": name,
+                        "email": email,
+                        "date": date,
+                        "guests": guests,
+                        "time": slot_time
+                    })
     else:
         form = BookingForm()
 
@@ -38,34 +50,41 @@ def home(request):
         "message": message
     })
 
-# View to handle table bookings on its own page (if you still want this)
+# View to handle table bookings on its own page (if still desired)
 def book_table(request):
     message = None
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            guests = form.cleaned_data['guests']
-            date = form.cleaned_data['date']
-            time = form.cleaned_data['time']
+            name    = form.cleaned_data['name']
+            email   = form.cleaned_data['email']
+            guests  = form.cleaned_data['guests']
+            date    = form.cleaned_data['date']
+            slot_time = form.cleaned_data['time']
 
-            exists = Booking.objects.filter(
-                date=date, time=time, email=email
-            ).exists()
-
-            if exists:
-                message = "You already have a booking at that time."
+            # Check opening hours
+            if slot_time < OPENING_TIME or slot_time > CLOSING_TIME:
+                message = (
+                    f"Our opening hours are "
+                    f"{OPENING_TIME.strftime('%H:%M')}–{CLOSING_TIME.strftime('%H:%M')}."
+                )
             else:
-                form.save()
-                return render(request, 'booking_success.html', {
-                    "name": name,
-                    "email": email,
-                    "date": date,
-                    "guests": guests,
-                    "time": time
-                })
+                # Prevent duplicate bookings
+                exists = Booking.objects.filter(
+                    date=date, time=slot_time, email=email
+                ).exists()
+                if exists:
+                    message = "You already have a booking at that time."
+                else:
+                    form.save()
+                    return render(request, 'booking_success.html', {
+                        "name": name,
+                        "email": email,
+                        "date": date,
+                        "guests": guests,
+                        "time": slot_time
+                    })
     else:
         form = BookingForm()
 
