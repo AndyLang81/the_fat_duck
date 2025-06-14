@@ -1,14 +1,20 @@
 from django import forms
 from .models import Booking
 
-# Form class tied to the Booking model, used to handle table reservations
 class BookingForm(forms.ModelForm):
-    class Meta:
-        model = Booking  # Use the Booking model as the base
-        fields = ['name', 'email', 'guests', 'date', 'time']  # Fields to include in the form
+    # Override the time field to enforce 24-hour format
+    time = forms.TimeField(
+        widget=forms.TimeInput(
+            attrs={'type': 'time'},
+            format='%H:%M'
+        ),
+        input_formats=['%H:%M']
+    )
 
-        # Customize how date and time fields appear in the form (e.g., date/time pickers)
+    class Meta:
+        model = Booking
+        fields = ['name', 'email', 'guests', 'date', 'time']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
-            'time': forms.TimeInput(attrs={'type': 'time'}),
+            # 'time' is defined above to ensure 24-hour clock
         }
