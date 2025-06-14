@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>The Fat Duck Tavern</title>
-</head>
-<body>
-    <h1>Welcome to The Fat Duck Tavern</h1>
-    <p>Your feast awaits...</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="home-section">
+        <h1>Welcome to The Fat Duck Tavern</h1>
+        <p>Your feast awaits...</p>
+        <a href="{% url 'book_table' %}" class="submit-button">Book a Table</a>
+    </section>
+{% endblock %}
