@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .forms import BookingForm
 from .models import Booking
-from datetime import time as dt_time
+from datetime import time as dt_time, datetime
 
 # Define opening hours (e.g., 17:00–22:00)
 OPENING_TIME = dt_time(17, 0)
@@ -10,6 +10,13 @@ CLOSING_TIME = dt_time(22, 0)
 
 # Maximum number of bookings allowed per slot (demo: 1)
 MAX_PER_SLOT = 1
+
+def parse_time(timestr):
+    """
+    Convert a 'HH:MM' string into a datetime.time object.
+    """
+    return datetime.strptime(timestr, "%H:%M").time()
+
 
 # View to render the homepage and handle inline bookings
 def home(request):
@@ -22,7 +29,8 @@ def home(request):
             email     = form.cleaned_data['email']
             guests    = form.cleaned_data['guests']
             date      = form.cleaned_data['date']
-            slot_time = form.cleaned_data['time']
+            raw_time  = form.cleaned_data['time']
+            slot_time = parse_time(raw_time)
 
             # Check opening hours
             if slot_time < OPENING_TIME or slot_time > CLOSING_TIME:
@@ -40,6 +48,8 @@ def home(request):
                     if Booking.objects.filter(date=date, time=slot_time, email=email).exists():
                         message = "You already have a booking at that time."
                     else:
+                        # Save the booking (Django will accept the string or time object)
+                        form.instance.time = slot_time
                         form.save()
                         return render(request, 'booking_success.html', {
                             "name": name,
@@ -57,7 +67,7 @@ def home(request):
     })
 
 
-# View to handle table bookings on its own page (if still desired)
+# View to handle table bookings on its own page
 def book_table(request):
     message = None
 
@@ -68,7 +78,8 @@ def book_table(request):
             email     = form.cleaned_data['email']
             guests    = form.cleaned_data['guests']
             date      = form.cleaned_data['date']
-            slot_time = form.cleaned_data['time']
+            raw_time  = form.cleaned_data['time']
+            slot_time = parse_time(raw_time)
 
             # Check opening hours
             if slot_time < OPENING_TIME or slot_time > CLOSING_TIME:
@@ -86,6 +97,7 @@ def book_table(request):
                     if Booking.objects.filter(date=date, time=slot_time, email=email).exists():
                         message = "You already have a booking at that time."
                     else:
+                        form.instance.time = slot_time
                         form.save()
                         return render(request, 'booking_success.html', {
                             "name": name,
