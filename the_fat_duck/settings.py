@@ -7,7 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 # Only these addresses can access the live site
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-render-url.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'the-fat-duck.onrender.com']
+
 
 # Secret key is stored in a separate file for safety
 SECRET_KEY = os.getenv('SECRET_KEY', 'this-is-temporary-and-will-be-removed')
