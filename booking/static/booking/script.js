@@ -1,5 +1,7 @@
 // static/booking/script.js
 
+console.log("🍽️ booking script loaded");
+
 document.addEventListener("DOMContentLoaded", function () {
     // Toggle burger menu on mobile
     const burgerIcon = document.getElementById("burger-icon");
