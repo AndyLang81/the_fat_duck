@@ -8,6 +8,9 @@ from datetime import time as dt_time
 OPENING_TIME = dt_time(17, 0)
 CLOSING_TIME = dt_time(22, 0)
 
+# Maximum number of bookings allowed per slot (demo: 1)
+MAX_PER_SLOT = 1
+
 # View to render the homepage and handle inline bookings
 def home(request):
     message = None
@@ -28,21 +31,23 @@ def home(request):
                     f"{OPENING_TIME.strftime('%H:%M')}–{CLOSING_TIME.strftime('%H:%M')}."
                 )
             else:
-                # Prevent duplicate bookings
-                exists = Booking.objects.filter(
-                    date=date, time=slot_time, email=email
-                ).exists()
-                if exists:
-                    message = "You already have a booking at that time."
+                # Check slot availability
+                count = Booking.objects.filter(date=date, time=slot_time).count()
+                if count >= MAX_PER_SLOT:
+                    message = "Sorry, that time slot is fully booked. Please choose another."
                 else:
-                    form.save()
-                    return render(request, 'booking_success.html', {
-                        "name": name,
-                        "email": email,
-                        "date": date,
-                        "guests": guests,
-                        "time": slot_time
-                    })
+                    # Prevent duplicate bookings by same email
+                    if Booking.objects.filter(date=date, time=slot_time, email=email).exists():
+                        message = "You already have a booking at that time."
+                    else:
+                        form.save()
+                        return render(request, 'booking_success.html', {
+                            "name": name,
+                            "email": email,
+                            "date": date,
+                            "guests": guests,
+                            "time": slot_time
+                        })
     else:
         form = BookingForm()
 
@@ -72,21 +77,23 @@ def book_table(request):
                     f"{OPENING_TIME.strftime('%H:%M')}–{CLOSING_TIME.strftime('%H:%M')}."
                 )
             else:
-                # Prevent duplicate bookings
-                exists = Booking.objects.filter(
-                    date=date, time=slot_time, email=email
-                ).exists()
-                if exists:
-                    message = "You already have a booking at that time."
+                # Check slot availability
+                count = Booking.objects.filter(date=date, time=slot_time).count()
+                if count >= MAX_PER_SLOT:
+                    message = "Sorry, that time slot is fully booked. Please choose another."
                 else:
-                    form.save()
-                    return render(request, 'booking_success.html', {
-                        "name": name,
-                        "email": email,
-                        "date": date,
-                        "guests": guests,
-                        "time": slot_time
-                    })
+                    # Prevent duplicate bookings by same email
+                    if Booking.objects.filter(date=date, time=slot_time, email=email).exists():
+                        message = "You already have a booking at that time."
+                    else:
+                        form.save()
+                        return render(request, 'booking_success.html', {
+                            "name": name,
+                            "email": email,
+                            "date": date,
+                            "guests": guests,
+                            "time": slot_time
+                        })
     else:
         form = BookingForm()
 
