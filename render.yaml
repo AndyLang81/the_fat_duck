@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fat-duck-django
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn the_fat_duck.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: the_fat_duck.settings
+      - key: SECRET_KEY
+        generateValue: true
