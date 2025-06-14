@@ -96,32 +96,30 @@ Static files served via WhiteNoise; no additional configuration needed.
 
 ## Screenshots
 
-### Design Sketch
-*(mockups here)*
+### Design Sketch  
+![Design Sketch](./docs/screenshots/design_sketch.png)
 
-### Agile Board (User Stories)
-*[Screenshot placeholder]*
+### Agile Board (User Stories)  
+![User Stories Board](./docs/screenshots/user_stories_board.png)
 
 ### Booking Flow
 
-#### Successful Booking
-*[Screenshot placeholder]*
+**Successful Booking**  
+![Booking Success](./docs/screenshots/booking_success.png)
 
-#### Duplicate Booking Prevention
-*[Screenshot placeholder]*
+**Duplicate Booking Prevention**  
+![Duplicate Error](./docs/screenshots/duplicate_error.png)
 
-#### Required Fields Validation
-*[Screenshot placeholder]*
+**Required Fields Validation**  
+![Required Field Error](./docs/screenshots/required_field_error.png)
 
 ### Mobile Navigation
 
-#### Burger Menu Open
-*[Screenshot placeholder]*
+**Burger Menu Open**  
+![Burger Menu Open](./docs/screenshots/burger_open.png)
 
-#### Burger Menu Closed
-*[Screenshot placeholder]*
-
----
+**Burger Menu Closed**  
+![Burger Menu Closed](./docs/screenshots/burger_closed.png)
 
 ## Testing
 
