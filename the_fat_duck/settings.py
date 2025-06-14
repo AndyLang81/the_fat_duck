@@ -4,7 +4,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: Don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Only these addresses can access the live site
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'your-render-url.onrender.com']

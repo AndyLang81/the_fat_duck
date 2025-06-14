@@ -1,9 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    <section class="home-section">
-        <h1>Welcome to The Fat Duck Tavern</h1>
-        <p>Your feast awaits...</p>
-        <a href="{% url 'book_table' %}" class="submit-button">Book a Table</a>
-    </section>
+
+<main>
+    <h2>Welcome to The Fat Duck!</h2>
+    <p>Your perfect dining experience begins here.</p>
+
+    <!-- Top Div -->
+    <div class="content-section top">
+        <div class="image-container">
+            <img src="{% static 'booking/duck.png' %}" alt="Duck">
+        </div>
+        <div class="text-container">
+            <h2>We Believe in Fire, Fat, and Taste...</h2>
+            <p>At The Fat Duck, we bring the ancient art of cooking back to life. We believe in the power of fire, the richness of fat, and the boldness of flavor.<br><br> 
+                Our mission is to serve the finest game, braised to perfection, sautéed to order, and fire-roasted to bring out that unforgettable smoky flavor.<br><br> 
+                Every dish celebrates the opulent feasts of the past, offering a dining experience that’s as bold as the tradition we uphold.<br> 
+                Indulge in the flavors of old-world luxury, where fire meets fat and taste.
+            </p>
+        </div>
+    </div>
+
+    <!-- Bottom Div -->
+    <div class="content-section bottom">
+        <div class="text-container">
+            <h2>...and Crafting Culinary Masterpieces</h2>
+            <p>At The Fat Duck, we don’t just prepare food — we create moments. Every dish is a labor of love, crafted with care and attention to detail. Our chefs honor the ingredients, working with nature’s bounty to bring out their fullest potential. <br> <br>
+                We are proud to serve only the finest locally sourced meats: tender beef, flavorful fowl, succulent pork, wild boar, and rich venison, all raised with sustainability in mind. We believe in supporting local farmers and sustainable practices, ensuring that every bite not only tastes good but feels good too.<br> <br>
+                Whether it’s game meats roasted to perfection or a side of perfectly sautéed vegetables, we focus on what matters most: flavor, craftsmanship, and the joy of eating. Pair your meal with one of our locally brewed beers, each carefully selected to complement our rich, savory dishes.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'booking/boar.png' %}" alt="Boar">
+        </div>
+    </div>
+</main>
 {% endblock %}
