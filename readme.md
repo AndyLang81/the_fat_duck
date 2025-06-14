@@ -8,9 +8,9 @@ Welcome to *The Fat Duck Tavern*, a full-stack web application designed to provi
 
 The Fat Duck Tavern app allows visitors to:
 
-* View restaurant information, including the menu and contact details.
-* Book tables online by submitting a reservation form with validation to prevent duplicate bookings.
-* Receive a confirmation page summarizing their booking details.
+- View restaurant information, including the menu and contact details
+- Book tables online by submitting a reservation form with validation to prevent duplicate bookings
+- Receive a confirmation page summarizing their booking details
 
 Administrators can manage bookings securely through the Django admin interface.
 
@@ -20,31 +20,28 @@ The system is built with Django on the backend and standard HTML/CSS on the fron
 
 ## User Stories
 
-### As a Visitor
-
-* **As a visitor**, I want to view the restaurant’s home page so that I can learn about The Fat Duck Tavern.
-* **As a visitor**, I want to browse the menu so that I can decide what I’d like to order.
-* **As a visitor**, I want to fill out a reservation form with date, time, and guest count so that I can book a table.
-* **As a visitor**, I want to receive a confirmation page after booking so that I know my reservation was successful.
-* **As a visitor**, I want to access contact information so that I can reach out with questions or special requests.
-
-### As an Administrator
-
-* **As an administrator**, I want to log in to the admin panel so that I can manage reservations.
-* **As an administrator**, I want to view all bookings in one place so that I can monitor restaurant occupancy.
-* **As an administrator**, I want to edit or delete bookings so that I can handle cancellations or changes.
-* **As an administrator**, I want to ensure no duplicate bookings for the same slot so that I avoid double-booking tables.
+| ID  | Story | Status | Implementation |
+|-----|-------|--------|----------------|
+| US1 | As a visitor, I want to view the home page so that I can learn about The Fat Duck Tavern. | Done | `home.html` / `home` view |
+| US2 | As a visitor, I want to browse the menu so that I can decide what to order. | Done | `menu.html` |
+| US3 | As a visitor, I want to fill out a reservation form so that I can book a table. | Done | `BookingForm` + inline form in `home.html` |
+| US4 | As a visitor, I want to receive a confirmation page after booking so that I know my reservation was successful. | Done | `booking_success.html` |
+| US5 | As a visitor, I want to see validation errors for required fields so that I correct mistakes. | Done | Form validation in `BookingForm` |
+| US6 | As a visitor, I want to be blocked from double-booking the same slot so that tables aren't overbooked. | Done | Duplicate-check in `booking/views.py` |
+| US7 | As an administrator, I want to log in to the admin panel so that I can manage reservations. | Done | Django Admin (`/admin/`) |
+| US8 | As an administrator, I want to view, edit, or delete bookings so that I can handle changes or cancellations. | Done | Django Admin Bookings model |
+| US9 | As a visitor, I want mobile navigation so that I can browse on my phone. | Done | Burger menu JS + responsive CSS |
 
 ---
 
 ## Features
 
-* **Responsive and Accessible UI:** Navigation adapts for mobile and desktop, forms include labels and client-side validation.
-* **Booking Form Validation:** Prevents duplicate bookings by the same email for the same date/time slot.
-* **Database-Backed:** All bookings are stored securely in a SQLite database with Django models.
-* **Role-Based Authentication:** Django’s admin authentication controls access to administrative features.
-* **Static File Management:** Uses WhiteNoise for efficient serving of CSS and images in production.
-* **Cloud Deployment:** Hosted and deployed on Render.com, ensuring reliability and scalability.
+- **Responsive and Accessible UI:** Navigation adapts for mobile and desktop, forms include labels and client-side validation
+- **Booking Form Validation:** Prevents duplicate bookings by the same email for the same date/time slot
+- **Database-Backed:** All bookings are stored securely in a SQLite database with Django models
+- **Role-Based Authentication:** Django's admin authentication controls access to administrative features
+- **Static File Management:** Uses WhiteNoise for efficient serving of CSS and images in production
+- **Cloud Deployment:** Hosted and deployed on Render.com, ensuring reliability and scalability
 
 ---
 
@@ -52,11 +49,11 @@ The system is built with Django on the backend and standard HTML/CSS on the fron
 
 The site was designed with simplicity and usability in mind. Key pages include:
 
-* **Home:** Welcoming landing page introducing The Fat Duck Tavern.
-* **Menu:** Displaying food and drink offerings.
-* **Booking:** A clear form where users can reserve tables.
-* **Confirmation:** A friendly confirmation page summarizing reservation details.
-* **Contact & About:** Providing restaurant contact info and background.
+- **Home:** Welcoming landing page introducing The Fat Duck Tavern
+- **Menu:** Displaying food and drink offerings
+- **Booking:** A clear form where users can reserve tables
+- **Confirmation:** A friendly confirmation page summarizing reservation details
+- **Contact & About:** Providing restaurant contact info and background
 
 The navigation menu remains consistent across pages, with a burger menu for smaller screens, ensuring smooth access anywhere.
 
@@ -78,7 +75,7 @@ python manage.py collectstatic    # Prepare static files
 python manage.py runserver
 ```
 
-Visit XXXXX
+Visit `http://localhost:8000` to view the application.
 
 ---
 
@@ -89,7 +86,15 @@ The app is deployed on Render.com with environment variables set for secret keys
 ---
 
 ## Screenshots
- coming
+
+### Agile Board (User Stories)
+*[Screenshot placeholder]*
+
+### Booking Flow
+*[Screenshot placeholder]*
+
+### Mobile Navigation
+*[Screenshot placeholder]*
 
 ---
 
@@ -97,65 +102,56 @@ The app is deployed on Render.com with environment variables set for secret keys
 
 Automated and manual tests have been conducted to ensure:
 
-* Booking form validation works as expected.
-* Navigation links function correctly.
-* Access restrictions to admin pages are enforced.
-* Static files load properly in production.
+- Booking form validation works as expected
+- Navigation links function correctly
+- Access restrictions to admin pages are enforced
+- Static files load properly in production
 
 ### Booking Form Manual Tests
 
-1. **Successful Booking**  
-   - Go to `/book/`, fill in valid data, and submit.  
-   - **Expected:** Redirect to confirmation page showing name, date, time, and guest count.  
-   - ![Booking Success](./docs/screenshots/booking_success.png)
+#### Successful Booking
+1. Go to `/book/`, fill in valid data, and submit
+2. **Expected:** Redirect to confirmation page showing name, date, time, and guest count
 
-2. **Duplicate Booking Prevention**  
-   - Revisit `/book/`, submit the same email/date/time as above.  
-   - **Expected:** The form reloads with the error message “You already have a booking at that time.”  
-   - ![Duplicate Error](./docs/screenshots/duplicate_error.png)
+#### Duplicate Booking Prevention
+1. Revisit `/book/`, submit the same email/date/time as above
+2. **Expected:** The form reloads with the error message "You already have a booking at that time."
 
-3. **Required Fields Validation**  
-   - **Action:** Submit the booking form without filling in any fields.  
-   - **Expected:** Each required field displays the error message “This field is required.”  
-   - ![Required Field Error](./docs/screenshots/required_field_error.png)
+#### Required Fields Validation
+1. **Action:** Submit the booking form without filling in any fields
+2. **Expected:** Each required field displays the error message "This field is required."
 
 ### JavaScript / UI Manual Tests
 
-1. **Mobile Navigation (Burger Menu)**  
-   - Resize browser to mobile width or open on a phone.  
-   - Click the burger icon.  
-   - **Expected:** The nav menu expands and collapses.  
-   - ![Burger Menu Open](./docs/screenshots/burger_open.png)  
-   - ![Burger Menu Closed](./docs/screenshots/burger_closed.png)
+#### Mobile Navigation (Burger Menu)
+1. Resize browser to mobile width or open on a phone
+2. Click the burger icon
+3. **Expected:** The nav menu expands and collapses
 
----
-
-All tests were performed on Chrome Version XX.X and Django’s development server.  
+All tests were performed on Chrome and Django's development server.
 
 ---
 
 ## Technologies Used
 
-* **Backend:** Python 3.13, Django 5.2
-* **Frontend:** HTML5, CSS3, JavaScript (vanilla)
-* **Database:** SQLite (development)
-* **Deployment:** Render.com, Gunicorn, WhiteNoise
+- **Backend:** Python 3.13, Django 5.2
+- **Frontend:** HTML5, CSS3, JavaScript (vanilla)
+- **Database:** SQLite (development)
+- **Deployment:** Render.com, Gunicorn, WhiteNoise
 
 ---
 
 ## Known Issues and Future Improvements
 
-* Email notifications for bookings could be added.
-* Additional user roles and permissions could enhance administration.
-* More extensive frontend testing and improvements in accessibility.
-* Transition to PostgreSQL for production database scalability.
+- Email notifications for bookings could be added
+- Additional user roles and permissions could enhance administration
+- More extensive frontend testing and improvements in accessibility
+- Transition to PostgreSQL for production database scalability
 
 ---
 
 ## Author
 
 This project was developed by Anders Lang as a portfolio piece demonstrating full-stack development skills, including project planning, database design, frontend and backend implementation, and deployment.
-
----
 
 Thank you for reviewing The Fat Duck Tavern booking system. I welcome any feedback or questions.
