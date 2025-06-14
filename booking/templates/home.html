@@ -7,7 +7,7 @@
   <p>Your perfect dining experience begins here.</p>
 
   <!-- Inline Booking Form -->
-  <div id="booking-form" class="booking-form">
+  <div class="booking-form">
     <h2>Book Your Table</h2>
     <form method="POST">
       {% csrf_token %}
@@ -48,11 +48,6 @@
 
     {% if message %}
       <p style="color: red; margin-top: 1em;">{{ message }}</p>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
-        });
-      </script>
     {% endif %}
   </div>
 </main>
