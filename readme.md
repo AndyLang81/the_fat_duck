@@ -81,14 +81,18 @@ Visit `http://localhost:8000` to view the application.
 
 ## Deployment
 
-The app is deployed on Render.com with environment variables set for secret keys and debug mode off for security. Static files are served efficiently using WhiteNoise. Deployment is configured to use Gunicorn as the production server.
-
----
+1. Created a Web Service on Render.com linked to the `the_fat_duck` GitHub repo.  
+2. Build Command: `pip install -r requirements.txt`  
+3. Start Command: `gunicorn the_fat_duck.wsgi:application`  
+4. Environment Variables:
+   - `SECRET_KEY` set to your Django secret key  
+   - `DEBUG` set to `False`  
+5. Static files served via WhiteNoise; no additional configuration needed.
 
 ## Screenshots
 
 ### Agile Board (User Stories)
-*[Screenshot placeholder]*
+![User Stories Board](./docs/screenshots/user_stories_board.png)
 
 ### Booking Flow
 *[Screenshot placeholder]*
@@ -152,6 +156,6 @@ All tests were performed on Chrome and Django's development server.
 
 ## Author
 
-This project was developed by Anders Lang as a portfolio piece demonstrating full-stack development skills, including project planning, database design, frontend and backend implementation, and deployment.
+This project was developed by Anders Langhoff as a portfolio piece demonstrating full-stack development skills, including project planning, database design, frontend and backend implementation, and deployment.
 
 Thank you for reviewing The Fat Duck Tavern booking system. I welcome any feedback or questions.
