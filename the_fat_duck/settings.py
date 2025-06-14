@@ -4,13 +4,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: Don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Only these addresses can access the live site
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'the-fat-duck.onrender.com']
 
-# Secret key is stored in a separate file for safety
-SECRET_KEY = os.getenv('SECRET_KEY', 'this-is-temporary-and-will-be-removed')
+# Secret key is stored in environment variable for security
+SECRET_KEY = os.environ['SECRET_KEY']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
