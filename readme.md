@@ -1,147 +1,133 @@
-# The Fat Duck – Restaurant Booking System
+# The Fat Duck Tavern — Restaurant Booking System
 
-A full-stack web application built with Django for a fictional medieval-style restaurant, The Fat Duck, located in Copenhagen. The project allows users to view the menu, learn about the restaurant, book tables, and access contact information, while giving the site owner full admin control over all bookings.
+Welcome to *The Fat Duck Tavern*, a full-stack web application designed to provide users with a seamless online table booking experience. This project was developed as part of a full-stack development course and showcases modern web development best practices, including responsive frontend design, a robust backend API, secure authentication, and cloud deployment.
 
 ---
 
-## Live Site
+## Project Overview
 
-(Insert deployed Render URL here once deployed)
+The Fat Duck Tavern app allows visitors to:
+
+* View restaurant information, including the menu and contact details.
+* Book tables online by submitting a reservation form with validation to prevent duplicate bookings.
+* Receive a confirmation page summarizing their booking details.
+
+Administrators can manage bookings securely through the Django admin interface.
+
+The system is built with Django on the backend and standard HTML/CSS on the frontend, focusing on clean UX, accessibility, and maintainability.
+
+---
+
+## User Stories
+
+### As a Visitor
+
+* **As a visitor**, I want to view the restaurant’s home page so that I can learn about The Fat Duck Tavern.
+* **As a visitor**, I want to browse the menu so that I can decide what I’d like to order.
+* **As a visitor**, I want to fill out a reservation form with date, time, and guest count so that I can book a table.
+* **As a visitor**, I want to receive a confirmation page after booking so that I know my reservation was successful.
+* **As a visitor**, I want to access contact information so that I can reach out with questions or special requests.
+
+### As an Administrator
+
+* **As an administrator**, I want to log in to the admin panel so that I can manage reservations.
+* **As an administrator**, I want to view all bookings in one place so that I can monitor restaurant occupancy.
+* **As an administrator**, I want to edit or delete bookings so that I can handle cancellations or changes.
+* **As an administrator**, I want to ensure no duplicate bookings for the same slot so that I avoid double-booking tables.
 
 ---
 
 ## Features
 
-### External User Features
-
-* View restaurant homepage, menu, contact, and about pages
-* Make a booking by filling out a form with:
-
-  * Name
-  * Email
-  * Phone number
-  * Number of guests
-  * Date
-* Receive confirmation on successful booking
-* Duplicate bookings prevented based on email and date
-
-### Site Owner Features
-
-* Log in to Django admin panel
-* View, edit, and delete booking entries
-* Admin dashboard secured with username and password
+* **Responsive and Accessible UI:** Navigation adapts for mobile and desktop, forms include labels and client-side validation.
+* **Booking Form Validation:** Prevents duplicate bookings by the same email for the same date/time slot.
+* **Database-Backed:** All bookings are stored securely in a SQLite database with Django models.
+* **Role-Based Authentication:** Django’s admin authentication controls access to administrative features.
+* **Static File Management:** Uses WhiteNoise for efficient serving of CSS and images in production.
+* **Cloud Deployment:** Hosted and deployed on Render.com, ensuring reliability and scalability.
 
 ---
 
-## Technologies Used
+## User Experience
 
-* Front-End: HTML5, CSS3, custom layout and styles
-* Back-End: Python 3.13, Django 5.2.1
-* Database: SQLite (default)
-* Version Control: Git, GitHub
-* Deployment: (Render to be added)
+The site was designed with simplicity and usability in mind. Key pages include:
 
----
+* **Home:** Welcoming landing page introducing The Fat Duck Tavern.
+* **Menu:** Displaying food and drink offerings.
+* **Booking:** A clear form where users can reserve tables.
+* **Confirmation:** A friendly confirmation page summarizing reservation details.
+* **Contact & About:** Providing restaurant contact info and background.
 
-## Pages and URLs
-
-| URL Path    | Description                          |
-| ----------- | ------------------------------------ |
-| `/`         | Home / Landing Page                  |
-| `/menu/`    | Full food and drink menu             |
-| `/book/`    | Table booking form                   |
-| `/contact/` | Address, phone, and contact info     |
-| `/about/`   | Info about owner, chef, and location |
-| `/admin/`   | Django admin login (for staff)       |
+The navigation menu remains consistent across pages, with a burger menu for smaller screens, ensuring smooth access anywhere.
 
 ---
 
-## Design
+## Installation and Running Locally
 
-* Old-timey tavern feel with emphasis on:
+To run this project locally, ensure you have Python 3.10+ installed. Then:
 
-  * Hearty game and meat dishes
-  * Sepia-toned illustrations of owner and chef
-  * Serif font (Platypi)
-  * Strong black & white contrast with warm accents
-* Fully responsive
-* Accessible layout and semantic HTML
+```bash
+git clone https://github.com/AndyLang81/the_fat_duck.git
+cd the_fat_duck
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser  # Create admin user
+python manage.py collectstatic    # Prepare static files
+python manage.py runserver
+```
 
----
-
-## Functionality and Business Logic
-
-* Booking model with unique email/date constraint
-* CSRF token security for form submissions
-* Validation for required fields (HTML + server side)
-* Only authenticated users can access Django admin
-* Static files served for custom images, stylesheets, and scripts
-
----
-
-## Testing
-
-* Manual testing performed on:
-
-  * Form validation and error handling
-  * Route rendering for all pages
-  * Duplicate booking protection
-  * Admin dashboard operations
-* Static assets tested in browser
-* Template rendering confirmed with Django routing
-* Automated tests not implemented in this version
+Visit XXXXX
 
 ---
 
 ## Deployment
 
-### Steps to deploy (Render):
-
-1. Push code to GitHub repository
-2. Log in to render.com
-3. Create new Web Service:
-
-   * Connect to GitHub
-   * Select your repo
-   * Build command: `pip install -r requirements.txt && python manage.py migrate`
-   * Start command: `gunicorn the_fat_duck.wsgi:application`
-   * Set environment variables (e.g. SECRET\_KEY, DEBUG=False)
-4. Deploy and verify site loads properly
+The app is deployed on Render.com with environment variables set for secret keys and debug mode off for security. Static files are served efficiently using WhiteNoise. Deployment is configured to use Gunicorn as the production server.
 
 ---
 
-## Future Improvements
+## Screenshots
+ coming
 
-* Email notifications on booking
-* Editable bookings via secure token
-* Admin dashboard redesign
-* Integration with a payment gateway
-* Conversion of menu to database-driven structure
+---
+
+## Testing
+
+Automated and manual tests have been conducted to ensure:
+
+* Booking form validation works as expected.
+* Navigation links function correctly.
+* Access restrictions to admin pages are enforced.
+* Static files load properly in production.
+
+Further JavaScript testing for responsiveness and UX is planned.
+
+---
+
+## Technologies Used
+
+* **Backend:** Python 3.13, Django 5.2
+* **Frontend:** HTML5, CSS3, JavaScript (vanilla)
+* **Database:** SQLite (development)
+* **Deployment:** Render.com, Gunicorn, WhiteNoise
+
+---
+
+## Known Issues and Future Improvements
+
+* Email notifications for bookings could be added.
+* Additional user roles and permissions could enhance administration.
+* More extensive frontend testing and improvements in accessibility.
+* Transition to PostgreSQL for production database scalability.
 
 ---
 
 ## Author
 
-Anders Langhoff
-Student Project – Code Institute Portfolio Project 4
+This project was developed by Anders Lang as a portfolio piece demonstrating full-stack development skills, including project planning, database design, frontend and backend implementation, and deployment.
 
 ---
 
-## Credits
-
-* Images generated with AI based on brief
-* Fonts via Google Fonts
-* Icons via FontAwesome CDN
-* Initial layout and design by student, refined and adapted to Django
-
----
-
-## License
-
-This project is licensed for educational and portfolio purposes only.
-
----
-
-## Status
-
-Complete – all core features implemented, manually tested, and deployed. Minor polish and extensions may follow.
+Thank you for reviewing The Fat Duck Tavern booking system. I welcome any feedback or questions.
