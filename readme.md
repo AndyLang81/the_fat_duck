@@ -111,6 +111,19 @@ Automated and manual tests have been conducted to ensure:
 - Access restrictions to admin pages are enforced
 - Static files load properly in production
 
+### Automated Tests
+
+1. **Home Page View**  
+   - Test: `booking/tests.py :: SimpleViewTests.test_home_view_status_and_template`  
+   - Uses Django’s `TestCase` and `reverse('home')` to GET the homepage.  
+   - **Asserts:** HTTP 200 OK and that `home.html` is rendered.  
+   - Output when run with `python manage.py test booking`:
+     ```
+     Ran 1 test in 0.030s
+
+     OK
+     ```
+
 ### Booking Form Manual Tests
 
 #### Successful Booking
