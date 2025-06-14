@@ -26,7 +26,7 @@ The system is built with Django on the backend and standard HTML/CSS on the fron
 | US2 | As a visitor, I want to browse the menu so that I can decide what to order. | Done | `menu.html` |
 | US3 | As a visitor, I want to fill out a reservation form so that I can book a table. | Done | `BookingForm` + inline form in `home.html` |
 | US4 | As a visitor, I want to receive a confirmation page after booking so that I know my reservation was successful. | Done | `booking_success.html` |
-| US5 | As a visitor, I want to see validation errors for required fields so that I correct mistakes. | Done | Form validation in `BookingForm` |
+| US5 | As a visitor, I want to see validation errors for required fields so that I can correct mistakes. | Done | Form validation in `BookingForm` |
 | US6 | As a visitor, I want to be blocked from double-booking the same slot so that tables aren't overbooked. | Done | Duplicate-check in `booking/views.py` |
 | US7 | As an administrator, I want to log in to the admin panel so that I can manage reservations. | Done | Django Admin (`/admin/`) |
 | US8 | As an administrator, I want to view, edit, or delete bookings so that I can handle changes or cancellations. | Done | Django Admin Bookings model |
@@ -81,23 +81,44 @@ Visit `http://localhost:8000` to view the application.
 
 ## Deployment
 
-1. Created a Web Service on Render.com linked to the `the_fat_duck` GitHub repo.  
-2. Build Command: `pip install -r requirements.txt`  
-3. Start Command: `gunicorn the_fat_duck.wsgi:application`  
-4. Environment Variables:
-   - `SECRET_KEY` set to your Django secret key  
-   - `DEBUG` set to `False`  
-5. Static files served via WhiteNoise; no additional configuration needed.
+Created a Web Service on Render.com linked to the the_fat_duck GitHub repo:
+
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `gunicorn the_fat_duck.wsgi:application`
+
+**Environment Variables:**
+- `SECRET_KEY` set to your Django secret key
+- `DEBUG` set to `False`
+
+Static files served via WhiteNoise; no additional configuration needed.
+
+---
 
 ## Screenshots
 
+### Design Sketch
+*(mockups here)*
+
 ### Agile Board (User Stories)
-![User Stories Board](./docs/screenshots/user_stories_board.png)
+*[Screenshot placeholder]*
 
 ### Booking Flow
+
+#### Successful Booking
+*[Screenshot placeholder]*
+
+#### Duplicate Booking Prevention
+*[Screenshot placeholder]*
+
+#### Required Fields Validation
 *[Screenshot placeholder]*
 
 ### Mobile Navigation
+
+#### Burger Menu Open
+*[Screenshot placeholder]*
+
+#### Burger Menu Closed
 *[Screenshot placeholder]*
 
 ---
@@ -113,16 +134,21 @@ Automated and manual tests have been conducted to ensure:
 
 ### Automated Tests
 
-1. **Home Page View**  
-   - Test: `booking/tests.py :: SimpleViewTests.test_home_view_status_and_template`  
-   - Uses Django’s `TestCase` and `reverse('home')` to GET the homepage.  
-   - **Asserts:** HTTP 200 OK and that `home.html` is rendered.  
-   - Output when run with `python manage.py test booking`:
-     ```
-     Ran 1 test in 0.030s
+#### Home Page View
 
-     OK
-     ```
+**Test:** `booking/tests.py :: SimpleViewTests.test_home_view_status_and_template`
+
+Uses Django's TestCase and `reverse('home')` to GET the homepage.
+
+**Asserts:** HTTP 200 OK and that `home.html` is rendered.
+
+Output when run with `python manage.py test booking`:
+
+```bash
+Ran 1 test in 0.030s
+
+OK
+```
 
 ### Booking Form Manual Tests
 
