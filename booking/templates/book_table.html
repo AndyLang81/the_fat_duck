@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="booking-form">
+<section id="booking-form" class="booking-form">
     <h2>Book Your Table</h2>
 
     <form method="POST">
@@ -37,6 +37,11 @@
 
     {% if message %}
         <p style="color: red; margin-top: 1em;">{{ message }}</p>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
+        });
+        </script>
     {% endif %}
 </section>
 {% endblock %}
