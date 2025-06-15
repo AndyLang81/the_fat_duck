@@ -1,15 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %}  {# Inherits layout and structure from base.html #}
+{% load static %}  {# Loads static file handling for CSS, JS, images if needed #}
 
-{% block content %}
+{% block content %}  {# Begins the content block to insert into base.html #}
 <section class="menu">
-    <h2>Our Menu</h2>
+    <h2>Our Menu</h2>  <!-- Page title -->
 
-    <div class="menu-container">
-        <div class="food">
+    <div class="menu-container">  <!-- Wraps all menu categories -->
+
+        <div class="food">  <!-- Food section -->
             <h3>Food</h3>
+
             <h4>Starters</h4>
             <ul class="menu-items">
+                <!-- Each list item represents a starter with name and price -->
                 <li class="menu-item">Roasted Bone Marrow .......... 145 DKK</li>
                 <li class="menu-item">Chestnut Soup with Cream .......... 120 DKK</li>
                 <li class="menu-item">Smoked Game Meat Platter .......... 200 DKK</li>
@@ -19,6 +22,7 @@
 
             <h4>Mains</h4>
             <ul class="menu-items">
+                <!-- Main dishes with rustic, meat-heavy focus -->
                 <li class="menu-item">Venison Braised with Root Vegetables .......... 295 DKK</li>
                 <li class="menu-item">Fire-Roasted Game Hen .......... 225 DKK</li>
                 <li class="menu-item">Sautéed Wild Boar with Red Wine Sauce .......... 265 DKK</li>
@@ -34,6 +38,7 @@
 
             <h4>Desserts</h4>
             <ul class="menu-items">
+                <!-- Sweet dessert options -->
                 <li class="menu-item">Warm Apple Pie with Caramel Sauce .......... 110 DKK</li>
                 <li class="menu-item">Decadent Chocolate Tart .......... 130 DKK</li>
                 <li class="menu-item">Crème Brûlée .......... 95 DKK</li>
@@ -42,10 +47,12 @@
             </ul>
         </div>
 
-        <div class="drinks">
+        <div class="drinks">  <!-- Drinks section -->
             <h3>Drinks</h3>
+
             <h4>Wine</h4>
             <ul class="menu-items">
+                <!-- Selection of fine wines -->
                 <li class="menu-item">Château Margaux - Bordeaux .......... 120 DKK</li>
                 <li class="menu-item">Domaine de la Romanée-Conti - Burgundy .......... 110 DKK</li>
                 <li class="menu-item">Rosé (Provence - Domaine Ott) .......... 95 DKK</li>
@@ -56,6 +63,7 @@
 
             <h4>Beer</h4>
             <ul class="menu-items">
+                <!-- Beer options including local and international styles -->
                 <li class="menu-item">Locally Brewed IPA .......... 75 DKK</li>
                 <li class="menu-item">Belgian Witbier .......... 65 DKK</li>
                 <li class="menu-item">Dark Lager .......... 70 DKK</li>
@@ -66,6 +74,7 @@
 
             <h4>Spirits & Snaps</h4>
             <ul class="menu-items">
+                <!-- Spirits and traditional Danish snaps -->
                 <li class="menu-item">Danish Aquavit .......... 70 DKK</li>
                 <li class="menu-item">Caraway Snaps .......... 75 DKK</li>
                 <li class="menu-item">Elderflower Snaps .......... 80 DKK</li>
@@ -76,6 +85,7 @@
 
             <h4>Soft Drinks</h4>
             <ul class="menu-items">
+                <!-- Non-alcoholic drink options -->
                 <li class="menu-item">Fresh Lemonade .......... 45 DKK</li>
                 <li class="menu-item">Iced Tea .......... 40 DKK</li>
                 <li class="menu-item">Sparkling Water .......... 30 DKK</li>
@@ -85,4 +95,4 @@
         </div>
     </div>
 </section>
-{% endblock %}
+{% endblock %}  {# Ends the content block #}

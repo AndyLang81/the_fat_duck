@@ -1,11 +1,17 @@
-{% extends "base.html" %}
+{% extends "base.html" %}  {# Inherit the base layout to maintain consistent structure and styling #}
 
-{% block content %}
+{% block content %}  {# Start of the content block to fill into base.html #}
+
     <div class="booking-form">
-    <h2>Thank You, {{ name }}!</h2>
-    <p>Your table for {{ guests }} has been successfully booked for <strong>{{ date }}</strong>.</p>
-    <p>A confirmation email will be sent to: <strong>{{ email }}</strong></p>
+        <!-- Personalized thank-you header -->
+        <h2>Thank You, {{ name }}!</h2>  {# Displays the user's name dynamically #}
 
-    <a href="/" class="submit-button" style="margin-top: 20px;">Return to Home</a>
-</div>
-{% endblock %}
+        <!-- Booking confirmation details -->
+        <p>Your table for {{ guests }} has been successfully booked for <strong>{{ date }}</strong>.</p>
+        <p>A confirmation email will be sent to: <strong>{{ email }}</strong></p>  {# Displays the email provided by the user #}
+
+        <!-- Button to return to the homepage -->
+        <a href="/" class="submit-button" style="margin-top: 20px;">Return to Home</a>
+    </div>
+
+{% endblock %}  {# End of the content block #}

@@ -1,19 +1,23 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %}  {# Inherit the base layout template #}
+{% load static %}  {# Enable use of static file references like images #}
 
-{% block content %}
+{% block content %}  {# Start of the main content block for this page #}
 <main>
+
+    <!-- Welcome section -->
     <h2>Welcome to The Fat Duck!</h2>
     <p>Your perfect dining experience begins here.</p>
 
-    <!-- Top Div -->
+    <!-- First content section: image + mission statement -->
     <div class="content-section top">
         <div class="image-container">
+            <!-- Duck image representing the restaurant's theme -->
             <img src="{% static 'booking/duck.png' %}" alt="Duck">
         </div>
         <div class="text-container">
             <h2>We Believe in Fire, Fat, and Taste...</h2>
             <p>
+                <!-- Restaurant philosophy and cooking approach -->
                 At The Fat Duck, we bring the ancient art of cooking back to life. We believe in the power of fire, the richness of fat, and the boldness of flavor.<br><br>
                 Our mission is to serve the finest game, braised to perfection, sautéed to order, and fire-roasted to bring out that unforgettable smoky flavor.<br><br>
                 Every dish celebrates the opulent feasts of the past, offering a dining experience that’s as bold as the tradition we uphold.<br>
@@ -22,59 +26,74 @@
         </div>
     </div>
 
-    <!-- Bottom Div -->
+    <!-- Second content section: sustainability and culinary craft -->
     <div class="content-section bottom">
         <div class="text-container">
             <h2>...and Crafting Culinary Masterpieces</h2>
             <p>
+                <!-- Description of quality, sourcing, and philosophy -->
                 At The Fat Duck, we don’t just prepare food — we create moments. Every dish is a labor of love, crafted with care and attention to detail. Our chefs honor the ingredients, working with nature’s bounty to bring out their fullest potential.<br><br>
                 We are proud to serve only the finest locally sourced meats: tender beef, flavorful fowl, succulent pork, wild boar, and rich venison, all raised with sustainability in mind. We believe in supporting local farmers and sustainable practices, ensuring that every bite not only tastes good but feels good too.<br><br>
                 Whether it’s game meats roasted to perfection or a side of perfectly sautéed vegetables, we focus on what matters most: flavor, craftsmanship, and the joy of eating. Pair your meal with one of our locally brewed beers, each carefully selected to complement our rich, savory dishes.
             </p>
         </div>
         <div class="image-container">
+            <!-- Boar image highlighting the meat-focused theme -->
             <img src="{% static 'booking/boar.png' %}" alt="Boar">
         </div>
     </div>
 
-    <!-- Inline Booking Form -->
+    <!-- Inline booking form section -->
     <div id="booking-form" class="booking-form" style="margin-top: 40px;">
         <h2>Book Your Table</h2>
+        
         <form method="POST">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
+            {% csrf_token %}  {# Required security token for POST form #}
+            {{ form.non_field_errors }}  {# General form validation errors #}
 
+            <!-- Name input field -->
             <div class="form-group">
                 <label for="id_name">Full Name</label>
                 {{ form.name }}
                 {{ form.name.errors }}
             </div>
+
+            <!-- Email input field -->
             <div class="form-group">
                 <label for="id_email">Email Address</label>
                 {{ form.email }}
                 {{ form.email.errors }}
             </div>
+
+            <!-- Date input field -->
             <div class="form-group">
                 <label for="id_date">Reservation Date</label>
                 {{ form.date }}
                 {{ form.date.errors }}
             </div>
+
+            <!-- Time input field -->
             <div class="form-group">
                 <label for="id_time">Reservation Time</label>
                 {{ form.time }}
                 {{ form.time.errors }}
             </div>
+
+            <!-- Guest count input field -->
             <div class="form-group">
                 <label for="id_guests">Number of Guests</label>
                 {{ form.guests }}
                 {{ form.guests.errors }}
             </div>
 
+            <!-- Submit button -->
             <button type="submit" class="submit-button">Submit Booking</button>
         </form>
 
         {% if message %}
+            <!-- Display error or confirmation message -->
             <p style="color: red; margin-top:1em;">{{ message }}</p>
+            <!-- Auto-scroll to booking form on page load if message exists -->
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('booking-form')
@@ -84,4 +103,4 @@
         {% endif %}
     </div>
 </main>
-{% endblock %}
+{% endblock %}  {# End of content block #}

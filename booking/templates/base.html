@@ -1,36 +1,41 @@
-{% load static %}
+{% load static %}  {# Enables the use of {% static %} tag for linking static files #}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Basic Page Setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Fat Duck Restaurant</title>
 
-    <!-- Link to custom CSS -->
+    <!-- Link to custom CSS stylesheet -->
     <link rel="stylesheet" href="{% static 'booking/styles.css' %}">
 
-    <!-- FontAwesome & Google Fonts -->
+    <!-- FontAwesome for social icons & Google Fonts for custom typography -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Platypi&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
+    <!-- Favicon icon for the browser tab -->
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'booking/icons8-duck-50.png' %}">
 </head>
 
 <body>
 
-    <!-- Header Section -->
+    <!-- Header Section with Logo and Navigation -->
     <header>
+        <!-- Clickable Logo -->
         <div class="logo">
             <a href="/"><h1>THE FAT DUCK</h1></a>
         </div>
+
+        <!-- Burger menu icon for mobile -->
         <div class="burger" id="burger-icon">
             <div class="burger-line"></div>
             <div class="burger-line"></div>
             <div class="burger-line"></div>
         </div>
 
+        <!-- Navigation Menu -->
         <nav id="nav-menu">
             <ul>
                 <li><a href="/">Home</a></li>
@@ -41,17 +46,20 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Block where child templates inject their content -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-      <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
+        <!-- Contact Information -->
         <div class="footer-left">
             <p>Kultorvet 45 <span class="separator">•</span> 1175 Copenhagen K <span class="separator">•</span> Denmark</p>
             <p>Phone: +45 12345678 <span class="separator">•</span> <a href="mailto:TheFatDuck@duck.dk">TheFatDuck@duck.dk</a></p>
         </div>
+
+        <!-- Social Media Icons -->
         <div class="footer-right">
             <a href="https://www.facebook.com" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -59,13 +67,13 @@
             <a href="https://www.linkedin.com" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
-        <!-- Admin link for quick access -->
+        <!-- Admin Panel Access Link -->
         <div class="footer-links" style="width: 100%; text-align: center; margin-top: 10px;">
             <a href="{% url 'admin:index' %}">Admin Login</a>
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- Link to custom JavaScript file, deferred until HTML is loaded -->
     <script src="{% static 'booking/script.js' %}" defer></script>
 </body>
 

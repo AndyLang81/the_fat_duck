@@ -1,57 +1,64 @@
 import os
 from pathlib import Path
 
+# Project base directory (two levels up from this settings file)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: Don't run with debug turned on in production!
+# SECURITY WARNING: turn off debug mode in production!
 DEBUG = False
 
-# Only these addresses can access the live site
+# Only these hosts/domains can serve the app
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'the-fat-duck.onrender.com']
 
-# Secret key is stored in environment variable for security
+# Secret key loaded from environment for security
 SECRET_KEY = os.environ['SECRET_KEY']
 
+# Application definitions
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'booking',
+    'django.contrib.admin',         # Admin site
+    'django.contrib.auth',          # Authentication framework
+    'django.contrib.contenttypes',  # Content type system
+    'django.contrib.sessions',      # Session framework
+    'django.contrib.messages',      # Messaging framework
+    'django.contrib.staticfiles',   # Static file handling
+    'booking',                      # Custom booking app
 ]
 
+# Middleware stack
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',            # Security headers
+    'whitenoise.middleware.WhiteNoiseMiddleware',               # Serve static files
+    'django.contrib.sessions.middleware.SessionMiddleware',     # Session management
+    'django.middleware.common.CommonMiddleware',                # Common HTTP features
+    'django.middleware.csrf.CsrfViewMiddleware',                # CSRF protection
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Associate users with requests
+    'django.contrib.messages.middleware.MessageMiddleware',     # Cookie- and session-based messaging
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',   # Clickjacking protection
 ]
 
+# Root URL configuration module
 ROOT_URLCONF = 'the_fat_duck.urls'
 
+# Template engine configuration
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [],               # Additional template directories
+        'APP_DIRS': True,         # Look for templates in app directories
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.request',   # Add request to context
+                'django.contrib.auth.context_processors.auth',  # Add user to context
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
 
+# WSGI application entry point
 WSGI_APPLICATION = 'the_fat_duck.wsgi.application'
 
+# Database configuration (SQLite for development)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -59,6 +66,7 @@ DATABASES = {
     }
 }
 
+# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -66,6 +74,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -75,7 +84,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise for serving static files in production
+# Use WhiteNoise to serve static files efficiently in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

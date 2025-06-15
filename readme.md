@@ -121,6 +121,12 @@ Static files served via WhiteNoise; no additional configuration needed.
 **Burger Menu Closed**  
 ![Burger Menu Closed](./docs/screenshots/burger_closed.png)
 
+**Main Layout**  
+![Main Layout Wireframe](./docs/screenshots/wireframe_main_layout.png)
+
+**Booking Form Detail**  
+![Booking Form Wireframe](./docs/screenshots/wireframe_booking_form.png)
+
 ## Testing
 
 Automated and manual tests have been conducted to ensure:

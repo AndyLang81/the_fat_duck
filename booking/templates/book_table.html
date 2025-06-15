@@ -1,42 +1,52 @@
-{% extends "base.html" %}
+{% extends "base.html" %}  {# This template extends the base layout #}
 
-{% block content %}
+{% block content %}  {# Begins the content block defined in base.html #}
 <section id="booking-form" class="booking-form">
+    <!-- Booking form heading -->
     <h2>Book Your Table</h2>
 
     <form method="POST">
-        {% csrf_token %}
+        {% csrf_token %}  {# Protects against Cross-Site Request Forgery attacks #}
 
+        <!-- Full name field -->
         <div class="form-group">
             <label for="id_name">Full Name</label>
-            {{ form.name }}
+            {{ form.name }}  {# Renders the name input field from the Django form #}
         </div>
 
+        <!-- Email address field -->
         <div class="form-group">
             <label for="id_email">Email Address</label>
-            {{ form.email }}
+            {{ form.email }}  {# Renders the email input field from the form #}
         </div>
 
+        <!-- Reservation date picker -->
         <div class="form-group">
             <label for="id_date">Reservation Date</label>
-            {{ form.date }}
+            {{ form.date }}  {# Renders the date input field from the form #}
         </div>
 
+        <!-- Reservation time dropdown -->
         <div class="form-group">
             <label for="id_time">Reservation Time</label>
-            {{ form.time }}
+            {{ form.time }}  {# Renders the time selection field from the form #}
         </div>
 
+        <!-- Number of guests field -->
         <div class="form-group">
             <label for="id_guests">Number of Guests</label>
-            {{ form.guests }}
+            {{ form.guests }}  {# Renders the guest count input field #}
         </div>
 
+        <!-- Submit button -->
         <button type="submit" class="submit-button">Submit Booking</button>
     </form>
 
-    {% if message %}
+    {% if message %}  {# Conditionally shows a message if one is passed from the view #}
+        <!-- Display error or confirmation message -->
         <p style="color: red; margin-top: 1em;">{{ message }}</p>
+
+        <!-- Scroll to booking form automatically when a message is shown -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
@@ -44,4 +54,4 @@
         </script>
     {% endif %}
 </section>
-{% endblock %}
+{% endblock %}  {# Ends the content block #}
